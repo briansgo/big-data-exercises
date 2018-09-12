@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f6358ff2-4bdb-41ec-8815-0ca75104376f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/nearsoft/academy/bigdata/recommendation/MovieRecommenderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/nearsoft/academy/bigdata/recommendation/MovieRecommenderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nearsoft/academy/bigdata/recommendation/MovieRecommender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nearsoft/academy/bigdata/recommendation/MovieRecommender.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,13 +45,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="5298" />
+          <entry key="java" value="5317" />
           <entry key="xml" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5298" />
+          <entry key="JAVA" value="5317" />
           <entry key="XML" value="10" />
         </counts>
       </usages-collector>
@@ -75,18 +74,19 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/nearsoft/academy/bigdata/recommendation/MovieRecommender.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="43" column="38" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
+            <state relative-caret-position="1970">
+              <caret line="234" column="5" selection-start-line="234" selection-start-column="5" selection-end-line="234" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#8456#8457#0" expanded="true" />
-                <element signature="e#8516#8517#0" expanded="true" />
-                <element signature="e#8556#8557#0" expanded="true" />
-                <element signature="e#8591#8592#0" expanded="true" />
-                <element signature="e#8632#8633#0" expanded="true" />
-                <element signature="e#8670#8671#0" expanded="true" />
-                <element signature="e#8708#8709#0" expanded="true" />
-                <element signature="e#8743#8744#0" expanded="true" />
+                <element signature="e#6040#6041#0" expanded="true" />
+                <element signature="e#6100#6101#0" expanded="true" />
+                <element signature="e#6140#6141#0" expanded="true" />
+                <element signature="e#6175#6176#0" expanded="true" />
+                <element signature="e#6216#6217#0" expanded="true" />
+                <element signature="e#6254#6255#0" expanded="true" />
+                <element signature="e#6292#6293#0" expanded="true" />
+                <element signature="e#6327#6328#0" expanded="true" />
+                <element signature="method#getRecommendationsForUser#0;class#MovieRecommender#0" />
               </folding>
             </state>
           </provider>
@@ -204,7 +204,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536697801075" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536709511477" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -293,6 +293,15 @@
       <configuration name="MovieRecommenderTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="MovieRecommenderTest - 2018.09.11 at 13h 34m 49s.xml">
+      <configuration name="MovieRecommenderTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MovieRecommenderTest - 2018.09.11 at 16h 38m 03s.xml">
+      <configuration name="MovieRecommenderTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MovieRecommenderTest - 2018.09.11 at 16h 45m 09s.xml">
+      <configuration name="MovieRecommenderTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MovieRecommenderTest - 2018.09.11 at 16h 52m 03s.xml">
       <configuration name="MovieRecommenderTest" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -386,18 +395,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nearsoft/academy/bigdata/recommendation/MovieRecommender.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="38" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
+        <state relative-caret-position="1970">
+          <caret line="234" column="5" selection-start-line="234" selection-start-column="5" selection-end-line="234" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8456#8457#0" expanded="true" />
-            <element signature="e#8516#8517#0" expanded="true" />
-            <element signature="e#8556#8557#0" expanded="true" />
-            <element signature="e#8591#8592#0" expanded="true" />
-            <element signature="e#8632#8633#0" expanded="true" />
-            <element signature="e#8670#8671#0" expanded="true" />
-            <element signature="e#8708#8709#0" expanded="true" />
-            <element signature="e#8743#8744#0" expanded="true" />
+            <element signature="e#6040#6041#0" expanded="true" />
+            <element signature="e#6100#6101#0" expanded="true" />
+            <element signature="e#6140#6141#0" expanded="true" />
+            <element signature="e#6175#6176#0" expanded="true" />
+            <element signature="e#6216#6217#0" expanded="true" />
+            <element signature="e#6254#6255#0" expanded="true" />
+            <element signature="e#6292#6293#0" expanded="true" />
+            <element signature="e#6327#6328#0" expanded="true" />
+            <element signature="method#getRecommendationsForUser#0;class#MovieRecommender#0" />
           </folding>
         </state>
       </provider>

@@ -79,7 +79,6 @@ public class MovieRecommender
         long starttime = System.currentTimeMillis();
 
         // some stuff needed
-        //ClassLoader classloader = getClass().getClassLoader();
         String productId = null, userId = null, score = null, line, nextline;
         int product = 0, user = 0;
         boolean isproduct = false, isuser = false, isscore = false;
@@ -113,109 +112,59 @@ public class MovieRecommender
             System.out.println("Generating csv file...");
             while (line != null)
             {
-                //System.out.println(i+" "+line);
 
-               // while (i==0)                                            // i==0 means next element should be 'productID'
-               // {
+                if (line.startsWith("product/productId"))
+                {
+                    productId = getValue(line);
 
-                    if (line.startsWith("product/productId"))
+                    if (!products.containsKey(productId))           //If the key is new, it's saved
                     {
-                        productId = getValue(line);
-
-                        if (!products.containsKey(productId))           //If the key is new, it's saved
-                        {
-                            products.put(productId, products.size());
-                        }
-
-                        product = products.get(productId);
-
-                        i=1;                                            // i==1 means next element should be 'userID'
-
-
-                        if ((nextline = reader.readLine()) != null) line = nextline;
-                        //System.out.println(i+" "+line);
+                        products.put(productId, products.size());
                     }
-                    //else
-                    /*{
-                        if ((nextline = reader.readLine()) != null){
-                            line = nextline;
-                            System.out.println(i+" "+line);
-                        } else  i=4;
-                    }*/
-                //}
 
-               // while (i==1)                                            // i==1 means next element should be 'userID'
-               // {
-                    if (line.startsWith("review/userId"))
+                    product = products.get(productId);
+
+                    i=1;                                            // i==1 means next element should be 'userID'
+
+
+                    if ((nextline = reader.readLine()) != null) line = nextline;
+                    //System.out.println(i+" "+line);
+                }
+
+                if (line.startsWith("review/userId"))
+                {
+
+                    userId = getValue(line);
+
+                    if (!users.containsKey(userId))                 //If the key is new, it's saved
                     {
-                        //isuser = true;
-                        userId = getValue(line);
-
-                        if (!users.containsKey(userId))                 //If the key is new, it's saved
-                        {
-                            users.put(userId, users.size());
-                        }
-                        user = users.get(userId);
-
-                        i=2;                                            // i==2 means next element should be 'score'
-
-
-                        /*if ((nextline = reader.readLine()) != null) line = nextline;
-                        System.out.println(i+" "+line);*/
-
-                        reader.readLine();
-                        reader.readLine();
-
+                        users.put(userId, users.size());
                     }
-                   /* else
-                    {
-                        if ((nextline = reader.readLine()) != null){
-                            line = nextline;
+                    user = users.get(userId);
 
-                            System.out.println(i+" "+line);
-                        } else i=4;
-                    }*/
-
-                //}
+                    i=2;                                            // i==2 means next element should be 'score'
 
 
-                //while (i==2)                                            // i==2 means next element should be 'score'
-                //{
-                    if (line.startsWith("review/score")) {
+                    reader.readLine();
+                    reader.readLine();
 
-                        score = getValue(line);
+                }
 
-                        writer.write(user + "," + product + "," + score + "\n");   //writes user, product and score in the csv file
-                        totalReviews++;
-                        i = 0;                                          // i==0 means next element should be 'productID'
+                if (line.startsWith("review/score")) {
 
-                        reader.readLine();
-                        reader.readLine();
-                        reader.readLine();
-                        reader.readLine();
+                    score = getValue(line);
 
-                        /*
-                        if ((nextline = reader.readLine()) != null) line = nextline;
-                        System.out.println(i+" "+line);
-                        if ((nextline = reader.readLine()) != null) line = nextline;
-                        System.out.println(i+" "+line);
-                        if ((nextline = reader.readLine()) != null) line = nextline;
-                        System.out.println(i+" "+line);
-                        if ((nextline = reader.readLine()) != null) line = nextline;
-                        System.out.println(i+" "+line);*/
+                    writer.write(user + "," + product + "," + score + "\n");   //writes user, product and score in the csv file
+                    totalReviews++;
+                    i = 0;                                          // i==0 means next element should be 'productID'
 
-                    }
-                    /*else
-                    {
-                        if ((nextline = reader.readLine()) != null){
-                            line = nextline;
-                            System.out.println(i+" "+line);
-                        } else i=4;
-                    }*/
+                    reader.readLine();
+                    reader.readLine();
+                    reader.readLine();
+                    reader.readLine();
+                }
 
-               // }
 
-                //if (i==4) break;
                 line = reader.readLine();
 
             }
@@ -226,7 +175,7 @@ public class MovieRecommender
             long finishtime = System.currentTimeMillis();
             long totaltime = starttime - finishtime;
 
-            System.out.println("It took " + (totaltime) + " msec to create the csv file...");
+            System.out.println("It took " + (totaltime/-1000) + " seconds to create the csv file...");
             System.out.println("Total Reviews: "+getTotalReviews());
             System.out.println("Total Products: "+getTotalProducts());
             System.out.println("Total Users: "+getTotalUsers());
@@ -284,32 +233,4 @@ public class MovieRecommender
 
         return recomendedMovies;
     }
-
-    /*    public void LocateError(int imustbe, int iis)
-    {
-        switch (imustbe){
-            case 0:
-                if (iis == 1) System.out.println("ERROR: Missed User ID and Score :(");
-                if (iis == 2) System.out.println("ERROR: Missed Score :(");
-                else System.out.println("Unknown error. Value of i: "+iis+" - Expected value of i: "+imustbe);
-                break;
-
-            case 1:
-                if (iis == 0) System.out.println("ERROR: Missed Product ID :(");
-                if (iis == 2) System.out.println("ERROR: Missed Score and Product ID :(");
-                else System.out.println("Unknown error. Value of i: "+iis+" - Expected value of i: "+imustbe);
-                break;
-
-            case 2:
-                if (iis == 0) System.out.println("ERROR: Missed Product ID and User ID :(");
-                if (iis == 1) System.out.println("ERROR: Missed User ID :(");
-                else System.out.println("Unknown error. Value of i: "+iis+" - Expected value of i: "+imustbe);
-                break;
-
-            default:
-                System.out.println("Unknown error. Value of i: "+iis+" - Expected value of i: "+imustbe);
-                break;
-        }
-    }
-    */
 }
